@@ -13,6 +13,8 @@ Galina Schmidt,
 
 Michael Wiedmann,
 
+
+
 Richtlinien für Programmierung:
 
 - Variablen, Methoden, Klassen werden auf Deutsch geschrieben
