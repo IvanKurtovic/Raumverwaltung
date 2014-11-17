@@ -9,7 +9,7 @@ Andreas Herrmann,
 Galina Schmidt,
 Michael Wiedmann,
 
-Richtlinien für Prgorammierung:
+Richtlinien für Programmierung:
 
 - Variablen, Methoden, Klassen werden auf Deutsch geschrieben
 
