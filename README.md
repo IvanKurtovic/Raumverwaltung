@@ -11,7 +11,7 @@ Andreas Herrmann,
 
 Galina Schmidt,
 
-Michael Wiedmann,
+Michael Wiedmann
 
 
 
