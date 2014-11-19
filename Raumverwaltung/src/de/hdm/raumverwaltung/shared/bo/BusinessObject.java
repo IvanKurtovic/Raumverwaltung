@@ -1,4 +1,4 @@
-package de.hdm.raumverwaltung.shared;
+package de.hdm.raumverwaltung.shared.bo;
 
 import java.io.Serializable;
 
