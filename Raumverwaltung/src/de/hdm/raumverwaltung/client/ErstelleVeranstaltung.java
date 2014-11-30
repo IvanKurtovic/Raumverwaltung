@@ -1,5 +1,5 @@
 package de.hdm.raumverwaltung.client;
 
-public class Raumverwaltung {
+public class ErstelleVeranstaltung {
 
 }
