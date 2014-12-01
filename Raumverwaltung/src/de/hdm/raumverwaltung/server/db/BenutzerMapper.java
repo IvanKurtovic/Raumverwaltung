@@ -7,11 +7,11 @@ import de.hdm.raumverwaltung.shared.bo.Einladung;
 
 public class BenutzerMapper {
 	
-	public Benutzer findBenutzerByID (long id) {
+	public Benutzer findeBenutzermitID (long id) {
 		return null;
 	}
 	
-	public Vector<Benutzer> findBenutzerByName (String vorname, String nachname) {
+	public Vector<Benutzer> findeBenutzermitName (String vorname, String nachname) {
 		return null;
 		
 	}
@@ -26,16 +26,16 @@ public class BenutzerMapper {
 		
 	}
 	
-	public void delete (Benutzer user){
+	public void loesche (Benutzer user){
 		
 	}
 	
-	public Vector<Einladung> getEinladungenOfBenutzer (Benutzer user){
+	public Vector<Einladung> getEinladungenvonBenutzer (Benutzer user){
 		return null;
 		
 	}
 	
-	public Benutzer findBenutzerByGoogleID (String googleID) {
+	public Benutzer findeBenutzermitGoogleID (String googleID) {
 		return null;
 		
 	}
