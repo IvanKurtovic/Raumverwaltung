@@ -13,18 +13,49 @@ public interface Raumverwaltung extends RemoteService {
 
 	public void init () throws IllegalArgumentException;
 
+/**
+ * Benuzter VErwaltung 
+ * @param vorname
+ * @param nachname
+ * @param googleID
+ * @param email
+ * @return
+ * @throws IllegaleArgumentException
+ */
 
-
-	public Benutzer erstelleBenutzer(String vorname, String nachname)
+	public Benutzer registrierenBenutzer(String vorname, String nachname, String googleID, String email)
 		throws IllegaleArgumentException; 
 	
-	public Raum erstelleRaum(String bezeichnung,  int raumKapazitaet)
+	public Benutzer bearbeitenBenutzer()
+			throws IllegaleArgumentException; 
+	
+	
+	public Benutzer loeschenBenuzter (String vorname, String nachname, String googleID, String email)
+			throws IllegaleArgumentException; 
+	
+	
+	/** 
+	 * Raum verwaltunf
+	 * @param bezeichnung
+	 * @param raumKapazitaet
+	 * @return
+	 * @throws IllegalArgumentException
+	 */
+	
+	public Raum anlegenRaum(String bezeichnung,  int raumKapazitaet)
 	throws IllegalArgumentException;
 	
+	public Raum bearbeitenRaum (String bezeichung, int raumKapazitaet)
+			throws IllegalArgumentException;
+
+	public Raum loeschenRaum (String bezeichung, int raumKapazitaet)
+	throws IllegalArgumentException;
 	
+	public Raum auswaehlenRaum (String bezeichung, int raumKapazitaet)
+	throws IllegalArgumentException;
 	
 	/**
-	 * Buchung für Benutzer
+	 * Buchung Verwaltung
 	 * @param veranstaltung
 	 * @param teilnehmer
 	 * @param status
@@ -32,7 +63,37 @@ public interface Raumverwaltung extends RemoteService {
 	 * @throws IllegalArgumentException
 	 */
 	
+	public Buchung anlegenBuchung ()
+			throws IllegalArgumentException;
 	
+	public Buchung bearbeitenBuchung()
+			throws IllegalArgumentException;
+	
+	public Buchung loeschenBuchung ()
+			throws IllegalArgumentException;
+	
+	
+	
+	
+	public Benutzer einladenBenutzer()
+			throws IllegalArgumentException;
+	
+	
+	public Einladung bestaetigenEinladung ()
+			throws IllegalArgumentException;
+	
+	public Einladung ablehnenEinladung()
+			throws IllegalArgumentException;
+	
+	
+	/** 
+	 * bisher sind nur reine Use Cases aus den Meilenstein 2
+	 * @param veranstaltung
+	 * @param teilnehmer
+	 * @param status
+	 * @return
+	 * @throws IllegalArgumentException
+	 */
 	public Einladung erstelleEinladung(Buchung veranstaltung , Benutzer teilnehmer, Enumeration status )
 	throws IllegalArgumentException;
 	/**

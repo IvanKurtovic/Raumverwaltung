@@ -9,4 +9,5 @@ import de.hdm.raumverwaltung.shared.bo.*;
 
 public interface RaumverwaltungAsync{
 	
+	
 }
