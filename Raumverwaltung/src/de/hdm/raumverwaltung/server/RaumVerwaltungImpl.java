@@ -31,5 +31,6 @@ public class RaumverwaltungImpl extends RemoteServiceServlet implements Raumverw
 	private RaumMapper rMapper=null;
 
 	
+	
 	//
 }
