@@ -8,183 +8,181 @@ import com.google.gwt.user.client.rpc.RemoteRelativePath;
 
 import de.hdm.raumverwaltung.shared.bo.*;
 import de.hdm.thies.bankProjekt.shared.bo.Account;
-
-
-@RemoteServiceRelativePath ("raumverwaltung")
-public interface Raumverwaltung extends RemoteService {
-
-	public void init () throws IllegalArgumentException;
+import de.hdm.thies.bankProjekt.shared.bo.Bank;
+import de.hdm.thies.bankProjekt.shared.bo.Customer;
+import de.hdm.thies.bankProjekt.shared.bo.Transaction;
 
 /**
- * Benuzter VErwaltung 
- * @param vorname
- * @param nachname
- * @param googleID
- * @param email
- * @return
- * @throws IllegaleArgumentException
+ * <p>
+ * Das ist die Synchrone Schnittstelle für eine RPC-fähige Klasse
+ *  zur Verwaltung von Räumen.
+ * </p>
+ *
+ * <p>
+ * <code>@RemoteServiceRelativePath("Raumverwaltung")</code> ist bei der
+ * Adressierung des aus der zugehörigen Impl-Klasse entstehenden
+ * Servlet-Kompilats behilflich. 
+ * Es gibt im Wesentlichen einen Teil der URL des Servlets an.
+ * </p>
+ * @author Galina Schmidt 
  */
+@RemoteServiceRelativePath ("raumverwaltung")
 
-	public Benutzer registrierenBenutzer(String vorname, String nachname, String googleID, String email)
+
+public interface Raumverwaltung extends RemoteService {
+	public void init () throws IllegalArgumentException;
+
+
+     
+  /**
+   * ALLE BENUTZER USE CASES
+   * 
+   * ein Benutzer meldet sich zum ersten mal an.
+   * In diese Methode  müssen Daten wie Name, Vorname, 
+   * das in Google Account erstellte ID und deren mail angelegt werden
+   * 
+   */
+	
+	public Benutzer registrierenBenutzer
+	(String vorname, String nachname, String googleID, String email)
 		throws IllegaleArgumentException; 
 	
-    public Benutzer getBenutzer ()
-    		throws IllegaleArgumentException;  
+  /** 
+   * Der Datensatz des Benutzers soll geändert werden
+   * da er bereits bekannt ist wird in dieser Methode ein vorhandener 
+   * Benutzer-Objekt verwendet
+   * @return
+   * @throws IllegaleArgumentException
+   */
     
-    public void setBenutzer (Benutzer u)
-    		throws IllegaleArgumentException; 
-    
-	public Benutzer bearbeitenBenutzer()
+	public Benutzer bearbeitenBenutzer(Benutzer u)
 			throws IllegaleArgumentException; 
 	
-	
-	public Benutzer loeschenBenuzter (String vorname, String nachname, String googleID, String email)
+	/**
+	 * 
+	 */
+	public void Benutzer loeschenBenutzer (Benutzer u)
 			throws IllegaleArgumentException; 
 	
-	
-	
+		    
+		    
 	/** 
-	 * Raum verwaltung
-	 * @param bezeichnung
-	 * @param raumKapazitaet
-	 * @return
-	 * @throws IllegalArgumentException
+	 * ALLE RAUM USE CASES
+	 * Ein neuer Raum soll angelegt werden
+	 * zurückgegeben wird ein fertiger Raum-Objekt
 	 */
 	
 	public Raum anlegenRaum(String bezeichnung,  int raumKapazitaet)
 	throws IllegalArgumentException;
 	
-	public Raum getRaum ()
-			throws IllegaleArgumentException; 
-	
-	
-	public void setRaum (Raum r)
-			throws IllegaleArgumentException; 
-	
-	public Raum bearbeitenRaum (String bezeichung, int raumKapazitaet)
+
+	public Raum bearbeitenRaum (Raum r)
 			throws IllegalArgumentException;
 
-	public Raum loeschenRaum (String bezeichung, int raumKapazitaet)
+	public void Raum loeschenRaum (Raum r)
 	throws IllegalArgumentException;
 	
-	public Raum auswaehlenRaum (String bezeichung, int raumKapazitaet)
+	public Vector <Raum> auswaehlenRaum (String bezeichung, int raumKapazitaet)
 	throws IllegalArgumentException;
 	
+
 	
 	/**
+	 * ALLE BUCHUNG USE CASES
+	 * Eine Buchung wir dvon Benutzer erzeugt.
+	 * Zurückgegeben wird ein fertige Buchung mit Informationen über den Zeitraum,
+	 * Raum und den Ersteller
 	 * 
 	 */
-	/**
-	 * Buchung Verwaltung
-	 * @param veranstaltung
-	 * @param teilnehmer
-	 * @param status
-	 * @return
-	 * @throws IllegalArgumentException
-	 */
-	
-	public Buchung anlegenBuchung ()
+	public Buchung anlegenBuchung 
+	(String thema, Date anfangsZeit, Date endZeit, Raum raum, Benutzer ersteller )
 			throws IllegalArgumentException;
-	
-	public Buchung getBuchung ()
-			throws IllegaleArgumentException; 
-	
-	public void setBuchung (Buchung b)
-			throws IllegaleArgumentException; 
-	
-	public Buchung bearbeitenBuchung()
-			throws IllegalArgumentException;
-	
-	public Buchung loeschenBuchung ()
-			throws IllegalArgumentException;
-	
-	
-	/** bisher einfache Erstellung von Use Cases und Getter und Setter erzeugen.
-	 * Ab hier werden methoden mit den gesamt ausgaben erzeugt (Alle)
-	 * @return
-	 * @throws IllegalArgumentException
-	 */
-	
-	public Vector<Benutzer> getAllBenutzer() throws IllegalArgumentException;
-	
-	public Vector<Raum> getAllRaeume() throws IllegalArgumentException;
-	
-	public Vector<Buchung> getAllBuchungen() throws IllegalArgumentException;
-	
-	public Vector<Einladung> getAllEinladung() throws IllegalArgumentException;
-	
-	
-	
-	
-	/**Benutzer und die dazu geplante  Ausgaben
-	 * @return
-	 * @throws IllegalArgumentException
-	 */
-	
-	public Vector<Benutzer> findeBenutzerMitName (String vorname, Strin nachname) 
-			throws IllegalArgumentException;
-	
-	public Benutzer findeBenutzerMitId(long id)
-			throws IllegalArgumentException;
-	
-	public Vector<Einladung> getEinladungVonBenutzer (Benutzer user)
-			throws IllegalArgumentException;
-	
-	public Benutzer findeBenutzerMitGoogleID(String googleID)
-			throws IllegalArgumentException;
-	
-	
-	/**
-	 * Einladungen und die dazu geplante Ausgaben
-	 */
-	
-	public Vector<Einladung> findeEinladungMitBenutzer(Benutzer user)
-			throws IllegalArgumentException;
-	
-	public Vector<Einladung> findeEinladungMitBuchung(Buchung buchung)
-		throws IllegalArgumentException;
 	
 
+	public Buchung bearbeitenBuchung(Buchung b)
+			throws IllegalArgumentException;
+	
+	public void Buchung loeschenBuchung(Buchun b)
+			throws IllegalArgumentException;
+	
+	
+	
 	/**
-	 * Raum und die dazi geplante Ausgaben
-	*/
+	 * EINLADUNGEN USE CASES
+	 * Ein Benutzer-Objekt, der durch Vornamen und Nachname bekannst ist,
+	 * wird eingeladen um in der Veranstaltung teilzunehmen
+	 * 
+	 */
+
+	public Benutzer einladenBenutzer (String vorname, String nachname)
+		    throws IllegaleArgumentException;
 	
-	public Vector<Raum> findeRaumMitBezeichung(String bezeichnung)
-			throws IllegalArgumentException;
+	/**
+	 * Methoden um Einladung zu bestätigt oder abgelehnt 
+	 * @return
+	 * @throws IllegaleArgumentException
+	 */
+	public Einladung bestaetigenEinladung()
+			throws IllegaleArgumentException;
 	
-	public Vector<Raum> findeRaumMitRaumKapazitaet(int raumKapazitaet)
-			throws IllegalArgumentException;
+	public Einladung ablehnenEinladung()
+			throws IllegaleArgumentException;
 	
-	public Vector<Raum> findeFreienRaumMitZeitraum(Date anfangsZeit, Date endZeit)
-			throws IllegalArgumentException;
 	
-	public Vector<Raum> findeFreienRaumMitZeitraumUndRaumkapazitaet(Date anfangsZeit, Date endZeit,int raumKapazitaet)
-			throws IllegalArgumentException;
 	
 	/** 
-	 * Buchung und die dazu geplnate Ausgaben
+	 * ALLE AUSGABEN EINFACHE
+	 * Ab hier werden methoden  erzeugt die Alle vorhandene Listen ausgeben 
+	 * mit der dynamische Liste -Vector
+	 * 
 	 */
 	
+	public Vector<Benutzer> gebeAlleBenutzer() throws IllegalArgumentException;
 	
-	public Vector<Buchung> findeBuchungMitErsteller(Benutzer user)
-			throws IllegalArgumentException;
+	public Vector<Raum> gebeAlleRaeume() throws IllegalArgumentException;
 	
-	public Vector<Buchung> findeBuchungMitTeilnehmer(Benutzer user)
-			throws IllegalArgumentException;
+	public Vector<Buchung> gebeAlleBuchungen() throws IllegalArgumentException;
 	
-	public Vector<Buchung> findeBuchungMitBenutzer(Benutzer user)
-			throws IllegalArgumentException;
-	
-	public Vector<Buchung> findeBuchungMitZeitraum(Date anfangsZeit, Date endZeit)
-			throws IllegalArgumentException;
+	public Vector<Einladung> gebeAlleEinladung() throws IllegalArgumentException;
 	
 	
-	public Vector<Buchung> findeBuchungMitRaum(Raum raum)
+	/**
+	 * ALLE BUCHUNGEN NACH KATEGORIEN
+	 * Ein Buchung soll mit Teilnehmern(t) ausgegegben werden und mit Zeitraum 
+	 * wann die Veranstalung ansteht(Anfang a, Ende e)
+	 * @return
+	 * @throws IllegalArgumentException
+	 */
+	
+	public Vector<Buchung> gebeBuchungMitTeilnehmer(Benutzer t)
 			throws IllegalArgumentException;
-	public Vector<Buchung> findeBuchungMitRaumUndZeitraum(Date anfangsZeit, Date endZeit,int raumKapazitaet)
+	
+	
+	public Vector<Buchung> gebeBuchungMitZeitraum(Date a, Date e)
 			throws IllegalArgumentException;
-	public Vector<Buchung> findeBuchungMitBenutzerUndZeitraum(Date anfangsZeit, Date endZeit, Benutzer user)
+	
+	
+	
+	
+	public Vector<Benutzer> sucheBenutzerNachName (String vorname, String nachname) 
 			throws IllegalArgumentException;
+	
+	public Benutzer sucheBenutzerNachId(long id)
+			throws IllegalArgumentException;
+	
+	
+	
+	/**
+	 * Es sollen Räume angezeigt werden nach Kapazität um sich Infos 
+	 * darüber zu holen wieviel Teilnehmer in einen Raum passen ()
+	 * Kapazität-Objekt ist bekannt (k)
+	*/
+
+	public Vector<Raum> sucheRaumNachKapazitaet(int k)
+			throws IllegalArgumentException;
+
+	
+
 	
 }
 	
