@@ -6,6 +6,16 @@ import java.util.Vector;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
 import de.hdm.raumverwaltung.shared.bo.*;
+import de.hdm.thies.bankProjekt.shared.BankAdministration;
+
+/**
+ * Das asynchrone Gegenstück des Interface {@link Raumverwaltung}. Es wird
+ * semiautomatisch durch das Google Plugin erstellt und gepflegt. Daher erfolgt
+ * hier keine weitere Dokumentation. Für weitere Informationen siehe das
+ * synchrone Interface {@link Raumverwaltung}.
+ * 
+ * @author thies
+ */
 
 public interface RaumverwaltungAsync{
 	

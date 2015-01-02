@@ -1,19 +1,39 @@
 package de.hdm.raumverwaltung.shared;
-
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
+import de.hdm.raumverwaltung.shared.bo.Benutzer;
+import de.hdm.raumverwaltung.shared.bo.Buchung;
+import de.hdm.raumverwaltung.shared.bo.Raum;
+import de.hdm.raumverwaltung.shared.report.erstelleReportVonRaumFuerZeitraum;
+import de.hdm.raumverwaltung.shared.report.erstelleReportVonBenutzerFuerZeitraum;
+import de.hdm.raumverwaltung.shared.report.erstelleReportOfBuchungenFuerZeitraum;
+import de.hdm.raumverwaltung.shared.report.erstelleListeMitAlleRaeume;
+import de.hdm.thies.bankProjekt.shared.ReportGenerator;
 
+
+/**
+ * Das asynchrone Gegenstück des Interface {@link ReportGenerator}. Es wird
+ * semiautomatisch durch das Google Plugin erstellt und gepflegt. Daher erfolgt
+ * hier keine weitere Dokumentation. Für weitere Informationen siehe das
+ * synchrone Interface {@link ReportGenerator}.
+ * 
+ * @author thies
+ */
 
 public interface ReportGeneratorAsync {
 
-  void createAllAccountsOfAllCustomersReport(
-      AsyncCallback<AllAccountsOfAllCustomersReport> callback);
+	 void erstelleReportVonRaumFuerZeitraum(Raum raum, Date anfangsZeit, 
+			 Date endZeit, AsyncCallback<ReportVonRaumFuerZeitraum> callback);
 
-  void createAllAccountsOfCustomerReport(Customer c,
-      AsyncCallback<AllAccountsOfCustomerReport> callback);
+	 void erstelleReportVonBenutzerFuerZeitraum
+	 		(Benutzer benutzer, Date anfangsZeit, Date endZeit,
+			 AsyncCallback<ReportVonBenutzerFuerZeitraum> callback);
 
-  void init(AsyncCallback<Void> callback);
-
-  void setBank(Bank b, AsyncCallback<Void> callback);
-
+	 void erstelleReportOfBuchungenFuerZeitraum(Date anfangsZeit, Date endZeit,
+		      AsyncCallback<ReportVonBuchungenFuerZeitraum> callback);
+	 
+	 void erstelleListeMitAlleRaeume(AsyncCallback<ListeMitAlleRaeume> callback);
+	 
+	 void init(AsyncCallback<Void> callback);
+	 
 }
