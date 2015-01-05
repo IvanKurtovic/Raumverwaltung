@@ -2,11 +2,9 @@ package de.hdm.raumverwaltung.shared;
 
 import java.util.ArrayList;
 import java.util.Vector;
-
 import com.google.gwt.user.client.rpc.AsyncCallback;
-
 import de.hdm.raumverwaltung.shared.bo.*;
-import de.hdm.thies.bankProjekt.shared.BankAdministration;
+
 
 /**
  * Das asynchrone Gegenstück des Interface {@link Raumverwaltung}. Es wird

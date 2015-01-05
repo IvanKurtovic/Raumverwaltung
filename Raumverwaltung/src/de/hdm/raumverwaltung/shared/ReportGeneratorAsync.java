@@ -1,14 +1,11 @@
 package de.hdm.raumverwaltung.shared;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
-import de.hdm.raumverwaltung.shared.bo.Benutzer;
-import de.hdm.raumverwaltung.shared.bo.Buchung;
-import de.hdm.raumverwaltung.shared.bo.Raum;
+import de.hdm.raumverwaltung.shared.bo.*;
 import de.hdm.raumverwaltung.shared.report.erstelleReportVonRaumFuerZeitraum;
 import de.hdm.raumverwaltung.shared.report.erstelleReportVonBenutzerFuerZeitraum;
 import de.hdm.raumverwaltung.shared.report.erstelleReportOfBuchungenFuerZeitraum;
 import de.hdm.raumverwaltung.shared.report.erstelleListeMitAlleRaeume;
-import de.hdm.thies.bankProjekt.shared.ReportGenerator;
 
 
 /**

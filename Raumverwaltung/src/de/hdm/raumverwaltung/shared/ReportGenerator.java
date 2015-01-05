@@ -1,8 +1,6 @@
 package de.hdm.raumverwaltung.shared;
 
-import de.hdm.raumverwaltung.shared.bo.Benutzer;
-import de.hdm.raumverwaltung.shared.bo.Buchung;
-import de.hdm.raumverwaltung.shared.bo.Raum;
+import de.hdm.raumverwaltung.shared.bo.*;
 
 import de.hdm.raumverwaltung.shared.report.erstelleReportVonRaumFuerZeitraum;
 import de.hdm.raumverwaltung.shared.report.erstelleReportVonBenutzerFuerZeitraum;
@@ -90,7 +88,7 @@ public interface ReportGenerator extends RemoteService {
 	 * @return ein fertiges Reportobjekt
 	 * @author Galina Schmidt
 	  */
-	public abstract ListeMitAlleRaeume erstelleListeMitAlleRaeume()
+	public abstract ListeMitAlleRaeume <Raum > erstelleListeMitAlleRaeume()
 			throws IllegalArgumentException;
 }
 
