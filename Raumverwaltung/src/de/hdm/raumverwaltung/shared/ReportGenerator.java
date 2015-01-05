@@ -88,7 +88,7 @@ public interface ReportGenerator extends RemoteService {
 	 * @return ein fertiges Reportobjekt
 	 * @author Galina Schmidt
 	  */
-	public abstract ListeMitAlleRaeume <Raum > erstelleListeMitAlleRaeume()
+	public abstract ListeMitAllenRaeumen erstelleListeMitAllenRaeumen()
 			throws IllegalArgumentException;
 }
 

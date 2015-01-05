@@ -31,6 +31,6 @@ public interface ReportGeneratorAsync {
 	 
 	 void erstelleListeMitAlleRaeume(AsyncCallback<ListeMitAlleRaeume> callback);
 	 
-	 void init(AsyncCallback<Void> callback);
+	 void init (AsyncCallback <Void> callback);
 	 
 }

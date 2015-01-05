@@ -8,11 +8,13 @@ import src.de.hdm.raumverwaltung.shared.Benutzer;
 import src.de.hdm.raumverwaltung.shared.IllegalArgumentException;
 import src.de.hdm.raumverwaltung.shared.IllegaleArgumentException;
 import src.de.hdm.raumverwaltung.shared.String;
+
 import de.hdm.raumverwaltung.server.db;
 import de.hdm.raumverwaltung.server.db.BenutzerMapper;
 import de.hdm.raumverwaltung.server.db.BuchungMapper;
 import de.hdm.raumverwaltung.server.db.EinladungMapper;
 import de.hdm.raumverwaltung.server.db.RaumMapper;
+
 import de.hdm.raumverwaltung.shared.Raumverwaltung;
 import de.hdm.raumverwaltung.shared.bo;
 import de.google.gwt.user.server.rpc.RemoteServiceServlet;
@@ -24,7 +26,7 @@ public class RaumverwaltungImpl extends RemoteServiceServlet
 
 implements Raumverwaltung {
 	
-	private static final long serialVersionUID = ;
+	private static final long serialVersionUID = 1L;
 	
 	/**
 	 * Referenz aus zugehörige Benutzer Objekt
