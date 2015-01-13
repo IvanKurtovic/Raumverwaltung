@@ -8,9 +8,8 @@ import com.google.gwt.user.client.rpc.RemoteRelativePath;
 
 import de.hdm.raumverwaltung.shared.bo.*;
 import de.hdm.thies.bankProjekt.shared.bo.Account;
-import de.hdm.thies.bankProjekt.shared.bo.Bank;
 import de.hdm.thies.bankProjekt.shared.bo.Customer;
-import de.hdm.thies.bankProjekt.shared.bo.Transaction;
+
 
 /**
  * <p>
@@ -89,20 +88,20 @@ public interface Raumverwaltung extends RemoteService {
 	
 	/**
 	 * ALLE BUCHUNG USE CASES
-	 * Eine Buchung wir dvon Benutzer erzeugt.
+	 * Eine Buchung wird von Benutzer erzeugt.
 	 * Zurückgegeben wird ein fertige Buchung mit Informationen über den Zeitraum,
 	 * Raum und den Ersteller
 	 * 
 	 */
 	public Buchung anlegenBuchung 
-	(String thema, Date anfangsZeit, Date endZeit, Raum raum, Benutzer ersteller )
+	(String t, Date az, Date ez, Raum r, Benutzer u )
 			throws IllegalArgumentException;
 	
 
 	public Buchung bearbeitenBuchung(Buchung b)
 			throws IllegalArgumentException;
 	
-	public void Buchung loeschenBuchung(Buchun b)
+	public void Buchung loeschenBuchung(Buchung b)
 			throws IllegalArgumentException;
 	
 	
@@ -154,6 +153,8 @@ public interface Raumverwaltung extends RemoteService {
 	 * @throws IllegalArgumentException
 	 */
 	
+	
+	  
 	public Vector<Buchung> gebeBuchungMitTeilnehmer(Benutzer t)
 			throws IllegalArgumentException;
 	
@@ -162,7 +163,7 @@ public interface Raumverwaltung extends RemoteService {
 			throws IllegalArgumentException;
 	
 	
-	
+
 	
 	public Vector<Benutzer> sucheBenutzerNachName (String vorname, String nachname) 
 			throws IllegalArgumentException;

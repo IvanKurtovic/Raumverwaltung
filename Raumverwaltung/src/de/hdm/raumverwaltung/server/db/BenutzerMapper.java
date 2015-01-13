@@ -16,21 +16,25 @@ public class BenutzerMapper {
 		
 	}
 	
-	public Benutzer insert (Benutzer user){
+	public Vector<Benutzer> findeAlle() {
+	
+	}
+	
+	public Benutzer insert (Benutzer u){
 		return null;
 		
 	}
 	
-	public Benutzer update (Benutzer user){
+	public Benutzer update (Benutzer u){
 		return null;
 		
 	}
 	
-	public void loesche (Benutzer user){
+	public void delete (Benutzer u){
 		
 	}
 	
-	public Vector<Einladung> getEinladungenvonBenutzer (Benutzer user){
+	public Vector<Einladung> getEinladungenvonBenutzer (Benutzer u){
 		return null;
 		
 	}

@@ -79,7 +79,7 @@ public interface ReportGenerator extends RemoteService {
 	
 	
 	public abstract ReportVonBuchungenFuerZeitraum 
-		erstelleReportOfBuchungenFuerZeitraum(Date anfangsZeit, Date endZeit)
+		erstelleReportVonBuchungenFuerZeitraum(Date anfangsZeit, Date endZeit)
 		throws IllegalArgumentException;
 	
 	
